@@ -2,21 +2,31 @@
 
 var planetsModule = angular.module('planetsModule', []);
 
+class PlanetsService {
+
+    findPlanets():Array<string> {
+        return ['mercure', 'venus', 'terre', 'mars', 'jupiter', 'saturne', 'uranus', 'neptune'];
+    }
+}
+
+planetsModule.service('PlanetsService', PlanetsService);
+
 class PlanetsController {
 
     filter:string = null;
     planets:Array<string> = [];
 
-    constructor() {
-        this.planets = ['mercure', 'venus', 'terre', 'mars', 'jupiter', 'saturne', 'uranus', 'neptune'];
+    static $inject = ['PlanetsService'];
+
+    constructor(public planetsService) {
     }
 
     get planetsFiltered() {
+        var planets = this.planetsService.findPlanets();
         if (this.filter) {
-            return this.planets.filter((planet) => planet.indexOf(this.filter) >= 0)
+            return planets.filter((planet) => planet.indexOf(this.filter) >= 0)
         }
-        return this.planets;
+        return planets;
     }
 }
-
 planetsModule.controller('PlanetsController', PlanetsController);
