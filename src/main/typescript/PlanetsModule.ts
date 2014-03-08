@@ -44,5 +44,25 @@ class PlanetsController {
         return planets;
     }
 }
+
+interface PlanetColorScope extends ng.IScope {
+    planet:Planet
+}
+
+var planetColorDirectiveFactory = function ():ng.IDirective {
+
+    return {
+        restrict: 'A',
+        scope: {
+            planet: '=planetColor'
+        },
+        link: function (scope:PlanetColorScope, element:ng.IAugmentedJQuery) {
+            var color = scope.planet.isRocky ? 'blue' : 'red';
+            element.css('color', color);
+        }
+    }
+};
+
+planetsModule.directive('planetColor', planetColorDirectiveFactory);
 planetsModule.controller('PlanetsController', PlanetsController);
 planetsModule.service('PlanetsService', PlanetsService);

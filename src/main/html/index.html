@@ -14,7 +14,7 @@
     <section ng-controller="PlanetsController as planetsController">
         <input ng-model="planetsController.filter" />
         <ul>
-            <li ng-repeat="planet in planetsController.planetsFiltered">{{planet.name}}</li>
+            <li ng-repeat="planet in planetsController.planetsFiltered" planet-color="planet">{{planet.name}}</li>
         </ul>
 
     </section>
