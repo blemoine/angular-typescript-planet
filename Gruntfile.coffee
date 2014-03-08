@@ -9,7 +9,7 @@ module.exports = (grunt) =>
 		typescript: 'src/main/typescript/**/*.ts'
 		typescript_temp: 'target/typescript/'
 		site: 'target/_site'
-		javascript: 'src/javascript'
+		javascript: 'src/main/javascript'
 		html: 'src/main/html'
 
 	src.scriptDest = "#{src.site}/script"

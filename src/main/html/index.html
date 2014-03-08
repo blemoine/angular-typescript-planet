@@ -10,5 +10,13 @@
     <h1>Angular TypeScript demo - with Planets</h1>
 </header>
 
+<div ng-app="planetsModule">
+    <section ng-controller="PlanetsController as planetsController">
+        <ul>
+            <li ng-repeat="planet in planetsController.planets">{{planet}}</li>
+        </ul>
+    </section>
+</div>
+
 </body>
 </html>
