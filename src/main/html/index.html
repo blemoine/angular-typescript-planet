@@ -12,8 +12,9 @@
 
 <div ng-app="planetsModule">
     <section ng-controller="PlanetsController as planetsController">
+        <input ng-model="planetsController.filter" />
         <ul>
-            <li ng-repeat="planet in planetsController.planets">{{planet}}</li>
+            <li ng-repeat="val in planetsController.planetsFiltered">{{val}}</li>
         </ul>
     </section>
 </div>
