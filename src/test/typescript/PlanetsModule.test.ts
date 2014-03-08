@@ -17,23 +17,31 @@ describe('PlanetsModule', function () {
     describe('PlanetsController', function () {
 
         it('planetsFiltered should give the planet list if no filter', function () {
-            var service = {findPlanets: () => ['mock']};
+            var mockPlanet = {name: 'mock'};
+            var service = {findPlanets: () => [
+                mockPlanet
+            ]};
 
             var controller:PlanetsController = new PlanetsController(service);
             controller.filter = null;
 
             var planets = controller.planetsFiltered;
-            expect(planets).toEqual(['mock'])
+            expect(planets).toEqual([mockPlanet])
         });
 
         it('planetsFiltered should give the planet list filtered if filter', function () {
-            var service = {findPlanets: () => ['mock', 'anotherMock']};
+            var mockPlanet = {name: 'mock'};
+            var anotherMockPlanet = {name: 'anotherMock'};
+            var service = {findPlanets: () => [
+                mockPlanet,
+                anotherMockPlanet
+            ]};
 
             var controller:PlanetsController = new PlanetsController(service);
             controller.filter = 'ano';
 
             var planets = controller.planetsFiltered;
-            expect(planets).toEqual(['anotherMock'])
+            expect(planets).toEqual([anotherMockPlanet])
         });
     });
 
