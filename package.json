@@ -1,0 +1,13 @@
+{
+  "name": "Angular_Typescript_Demo",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt": "^0.4.2",
+    "grunt-typescript": "^0.2.8",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-clean": "^0.5.0"
+  }
+}
